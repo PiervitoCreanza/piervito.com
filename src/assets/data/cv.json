@@ -133,17 +133,23 @@
       "iconAlt": "book icon",
       "items": [
         {
-          "title": "Politecnico Di Milano",
-          "date": "2021 - Present",
-          "description": "Bachelor’s degree in Engineering Of Computing Systems.",
-          "badge": "Current GPA: 27/30",
+          "title": "Master's degree in Computer Science and Engineering",
+          "description": "@ Politecnico Di Milano. Expected graduation in 2026.",
+          "date": "2024 - Present",
           "isDotted": false
         },
         {
-          "title": "Liceo Scientifico Statale C. De Giorgi",
+          "title": "Bachelor’s degree in Engineering Of Computing Systems",
+          "description": "@ Politecnico Di Milano. Awarded at the first available graduation session, in July.",
+          "date": "2021 - 2024",
+          "badge": "Grade: 105/110",
+          "isDotted": false
+        },
+        {
+          "title": "High School Diploma in Scientific Studies",
+          "description": "@ Liceo Scientifico Statale C. De Giorgi.",
           "date": "2016 - 2021",
-          "description": "High School Diploma in Scientific Studies.",
-          "badge": "100/100 cum laude",
+          "badge": "Grade: 100/100 cum laude",
           "isDotted": true
         }
       ]
