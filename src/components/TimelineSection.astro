@@ -20,6 +20,6 @@ const { data } = Astro.props;
 
 <Section icon={data.icon} title={data.title} description={data.description}>
   <Timeline>
-    {data.items.map((item) => <TimelineEntry {...item} />)}
+    {data.items.map((item, index) => <TimelineEntry {...item} index={index} />)}
   </Timeline></Section
 >

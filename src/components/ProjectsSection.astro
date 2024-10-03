@@ -31,8 +31,8 @@ const { data } = Astro.props;
 <Section icon={data.icon} title={data.title} description={data.description}>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-3">
     {
-      data.items.map((item) => (
-        <Card>
+      data.items.map((item, index) => (
+        <Card data-aos="fade-up" data-aos-delay={(index % 3) * 100}>
           <CardHeader>
             {item.githubRepo && (
               <GithubLink
