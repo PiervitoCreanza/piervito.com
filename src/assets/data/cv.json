@@ -12,7 +12,7 @@
     "iconAlt": "archive icon",
     "items": [
       {
-        "title": "GenScore retraining",
+        "title": "Machine Learning for drug-target interaction estimation in Drug Discovery ",
         "description": "Project concerning the retraining of GenScore, a generalized protein–ligand scoring framework based on machine learning. GenScore is a state-of-the-art model employed in drug discovery to calculate the affinity degree between proteins and ligands.",
         "tags": ["Python", "PyTorch", "Machine Learning", "AI"],
         "githubRepo": {
