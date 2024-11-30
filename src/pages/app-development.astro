@@ -1,16 +1,18 @@
 ---
 import "@/styles/globals.css";
 import { ModeToggle } from "@/components/ModeToggle";
+import { Separator } from "@/components/ui/separator";
 import Footer from "@/components/Footer.astro";
+import { Icon } from "astro-icon/components";
 
-import cv from "../assets/data/cv.json";
-import TimelineSection from "@/components/TimelineSection.astro";
-import Hero from "@/components/Hero.astro";
-import ProjectsSection from "@/components/ProjectsSection.astro";
-import Honors from "@/components/Honors.astro";
+import GithubLink from "@/components/GitHubLink.astro";
+import { Image } from "astro:assets";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import ProfileDecoration from "@/components/ProfileDecoration.astro";
 ---
 
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -21,25 +23,43 @@ import Honors from "@/components/Honors.astro";
   </head>
   <body class="dark:diamond-gradient">
     <div class="fixed m-3 right-0 bottom-0"><ModeToggle client:load /></div>
-    <div class="container">
-      <Hero
-        title={cv.hero.title}
-        badge={cv.hero.badge}
-        description={cv.hero.description}
-        badge={cv.hero.badge}
-        cvPath={cv.hero.cvPath}
-      />
-      {
-        cv.sections.map((data) => {
-          switch (data.type) {
-            case "timeline":
-              return <TimelineSection data={data} />;
-          }
-        })
-      }
-      <ProjectsSection data={cv.projects} />
-      <TimelineSection data={cv.workExperience} />
-      <Honors data={cv.honors} />
+    <div class="container min-h-screen flex flex-col justify-between">
+      <section class="text-center flex items-center grow">
+        <div class="mx-auto">
+          <Icon
+            id="stars-01"
+            name="stars-01"
+            class="mx-auto w-32 h-32 stroke-black dark:stroke-white stroke-1 mb-3"
+          />
+          <h1 data-aos="fade">
+            Hai bisogno di un'app <br class="hidden sm:block" />per la tua
+            attività?
+          </h1>
+          <p class="lead md:max-w-2xl" data-aos="fade" data-aos-delay="200">
+            Dall'idea alla realizzazione, un'app su misura per la tua attività,
+            offrendoti supporto completo e soluzioni personalizzate.
+          </p>
+          <div class="mt-3">
+            <a
+              class={buttonVariants()}
+              href="mailto:app@piervito.com"
+              data-aos="fade"
+              data-aos-delay="300"
+            >
+              Contattami
+            </a>
+            <a
+              class={buttonVariants({ variant: "outline" })}
+              href="/"
+              data-aos="fade"
+              data-aos-delay="400"
+            >
+              Il mio CV
+            </a>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   </body>
@@ -84,28 +104,14 @@ import Honors from "@/components/Honors.astro";
       return Math.sin((x * Math.PI) / 2);
     }
 
-    new Vivus("profile-decoration", {
-      duration: 150,
-      pathTimingFunction: easeOutSine,
-    });
-
-    new Vivus("book-open-01", {
-      duration: 200,
-      animTimingFunction: easeOutSine,
-    });
-
-    new Vivus("archive", {
-      duration: 100,
-      pathTimingFunction: easeOutSine,
-    });
-
-    new Vivus("briefcase-02", {
-      duration: 100,
-      pathTimingFunction: easeOutSine,
-    });
-
-    new Vivus("award-03", {
-      duration: 100,
+    var duration;
+    if (window.innerWidth < 500) {
+      duration = 300;
+    } else {
+      duration = 150;
+    }
+    new Vivus("stars-01", {
+      duration,
       pathTimingFunction: easeOutSine,
     });
   </script>
