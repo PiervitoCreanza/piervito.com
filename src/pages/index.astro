@@ -8,105 +8,61 @@ import TimelineSection from "@/components/TimelineSection.astro";
 import Hero from "@/components/Hero.astro";
 import ProjectsSection from "@/components/ProjectsSection.astro";
 import Honors from "@/components/Honors.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Piervito Creanza</title>
-    <link rel="stylesheet" href="/aos/aos.css" />
-  </head>
-  <body class="dark:diamond-gradient">
-    <div class="fixed m-3 right-0 bottom-0"><ModeToggle client:load /></div>
-    <div class="container">
-      <Hero
-        title={cv.hero.title}
-        badge={cv.hero.badge}
-        description={cv.hero.description}
-        badge={cv.hero.badge}
-        cvPath={cv.hero.cvPath}
-      />
-      {
-        cv.sections.map((data) => {
-          switch (data.type) {
-            case "timeline":
-              return <TimelineSection data={data} />;
-          }
-        })
+<BaseLayout lang="en">
+  <Hero
+    title={cv.hero.title}
+    badge={cv.hero.badge}
+    description={cv.hero.description}
+    badge={cv.hero.badge}
+    cvPath={cv.hero.cvPath}
+  />
+  {
+    cv.sections.map((data) => {
+      switch (data.type) {
+        case "timeline":
+          return <TimelineSection data={data} />;
       }
-      <ProjectsSection data={cv.projects} />
-      <TimelineSection data={cv.workExperience} />
-      <Honors data={cv.honors} />
-      <Footer />
-    </div>
-  </body>
-  <script is:inline src="/aos/aos.js"></script>
-  <script is:inline>
-    const getThemePreference = () => {
-      if (
-        typeof localStorage !== "undefined" &&
-        localStorage.getItem("theme")
-      ) {
-        return localStorage.getItem("theme");
+    })
+  }
+  <ProjectsSection data={cv.projects} />
+  <TimelineSection data={cv.workExperience} />
+  <Honors data={cv.honors} />
+
+  <slot name="scripts">
+    <script is:inline src="/vivus.min.js"></script>
+
+    <script is:inline>
+      function easeOutSine(x) {
+        return Math.sin((x * Math.PI) / 2);
       }
-      console.log("No theme preference found in localStorage");
-      // Fallback to dark theme
-      return "dark";
-      /*
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";*/
-    };
-    const isDark = getThemePreference() === "dark";
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
 
-    if (typeof localStorage !== "undefined") {
-      const observer = new MutationObserver(() => {
-        const isDark = document.documentElement.classList.contains("dark");
-        localStorage.setItem("theme", isDark ? "dark" : "light");
+      new Vivus("profile-decoration", {
+        duration: 150,
+        pathTimingFunction: easeOutSine,
       });
-      observer.observe(document.documentElement, {
-        attributes: true,
-        attributeFilter: ["class"],
+
+      new Vivus("book-open-01", {
+        duration: 200,
+        animTimingFunction: easeOutSine,
       });
-    }
-    AOS.init({
-      easing: "ease-in-out",
-      duration: 700,
-    });
-  </script>
-  <script is:inline src="/vivus.min.js"></script>
-  <script is:inline>
-    function easeOutSine(x) {
-      return Math.sin((x * Math.PI) / 2);
-    }
 
-    new Vivus("profile-decoration", {
-      duration: 150,
-      pathTimingFunction: easeOutSine,
-    });
+      new Vivus("archive", {
+        duration: 100,
+        pathTimingFunction: easeOutSine,
+      });
 
-    new Vivus("book-open-01", {
-      duration: 200,
-      animTimingFunction: easeOutSine,
-    });
+      new Vivus("briefcase-02", {
+        duration: 100,
+        pathTimingFunction: easeOutSine,
+      });
 
-    new Vivus("archive", {
-      duration: 100,
-      pathTimingFunction: easeOutSine,
-    });
-
-    new Vivus("briefcase-02", {
-      duration: 100,
-      pathTimingFunction: easeOutSine,
-    });
-
-    new Vivus("award-03", {
-      duration: 100,
-      pathTimingFunction: easeOutSine,
-    });
-  </script>
-</html>
+      new Vivus("award-03", {
+        duration: 100,
+        pathTimingFunction: easeOutSine,
+      });
+    </script>
+  </slot>
+</BaseLayout>

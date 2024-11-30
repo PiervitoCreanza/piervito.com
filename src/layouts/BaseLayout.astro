@@ -1,4 +1,33 @@
 ---
 // Supports weights 100-900
-import '@fontsource-variable/inter-tight';
+import "@fontsource-variable/inter-tight";
+import { ModeToggle } from "@/components/ModeToggle";
+import Footer from "@/components/Footer.astro";
+import ThemeAndAnimationScripts from "@/components/ThemeAndAnimationScripts.astro";
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props as Props;
 ---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Piervito Creanza</title>
+    <link rel="stylesheet" href="/aos/aos.css" />
+  </head>
+  <body class="dark:diamond-gradient">
+    <div class="fixed m-3 right-0 bottom-0"><ModeToggle client:load /></div>
+    <div class="container min-h-screen flex flex-col justify-between">
+      <slot />
+      <Footer />
+    </div>
+    <ThemeAndAnimationScripts />
+    <slot name="scripts" />
+  </body>
+</html>
