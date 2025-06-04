@@ -30,7 +30,12 @@ const { title, description, badge, cvPath } = Astro.props;
     <h1>{title}</h1>
     <p class="lead">{description}</p>
     <div class="mt-3">
-      <a class={buttonVariants()} href="mailto:job@piervito.com">
+      <a
+        class={buttonVariants()}
+        href="#"
+        data-contact="am9iQHBpZXJ2aXRvLmNvbQ=="
+        onfocus="this.href = 'mailto:' + atob(this.dataset.contact)"
+      >
         Get in touch
       </a>
       <a class={buttonVariants({ variant: "outline" })} href={cvPath} download>
