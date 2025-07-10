@@ -108,3 +108,7 @@
         no-repeat;
   }
 }
+
+.collaboration-link {
+    @apply italic text-primary hover:text-muted-foreground transition-colors;
+  }

@@ -41,7 +41,7 @@ const { data } = Astro.props;
               />
             )}
             <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
+            <CardDescription dangerouslySetInnerHTML={{ __html: item.description }} />
           </CardHeader>
           <CardFooter className="flex flex-wrap gap-2">
             {item.tags.map((tag) => (

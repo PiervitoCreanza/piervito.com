@@ -12,6 +12,33 @@
     "iconAlt": "archive icon",
     "items": [
       {
+        "title": "Harnessing Photons: an all-optical high-order ODE solver via cascaded microring resonators",
+        "description": "This project is a collaboration with <a class=\"collaboration-link\" target=\"_blank\" href=\"https://justvicthor.github.io\">Vittorio Cozzoli</a>, a fellow student at Politecnico di Milano. It involves the development of a MATLAB simulation for a high-order all-optical differential equation solver based on microring resonators. The work is part of a research initiative focused on investigating the potential of photonic systems for solving complex differential equations.",
+        "tags": ["Matlab", "Optical Computing", "Microring Resonators"],
+        "githubRepo": {
+          "profileName": "PiervitoCreanza",
+          "repoName": "High_Order_ODE_Solver_Via_MRR"
+        }
+      },
+      {
+        "title": "Lavoro A Chiamata - App Development",
+        "description": "Mobile application developed to facilitate companies in the management of temporary employes, allowing users to comply with the Italian law on 'Lavoro A Chiamata'. The app is developed in Flutter and is available on both Android and iOS. It leverages Amazon Web Services (AWS) for the back-end, ensuring secure and scalable email sending, user authentication, and data storage.",
+        "tags": ["Flutter", "AWS", "Mobile App", "Android", "iOS"],
+        "githubRepo": {
+          "profileName": "PiervitoCreanza",
+          "repoName": "Lavoro_a_Chiamata"
+        }
+      },
+      {
+        "title": "SciSicuro -  App Development",
+        "description": "Mobile application developed for an insurance company to provide users with a platform for managing their insurance policies. The app is developed in Flutter and is available on both Android and iOS. It seamlessy integrates with the company legacy back-end, allowing users to view and manage their policies, file claims, and access customer support. Developed in collaboration with <a class=\"collaboration-link\" target=\"_blank\" href=\"https://www.mattiacolombo.com\" >Mattia Colombo.</a>",
+        "tags": ["Flutter", "Mobile App", "Android", "iOS"],
+        "githubRepo": {
+          "profileName": "PiervitoCreanza",
+          "repoName": "SciSicuro"
+        }
+      },
+      {
         "title": "Machine Learning for drug-target interaction estimation in Drug Discovery ",
         "description": "Project concerning the retraining of GenScore, a generalized protein–ligand scoring framework based on machine learning. GenScore is a state-of-the-art model employed in drug discovery to calculate the affinity degree between proteins and ligands.",
         "tags": ["Python", "PyTorch", "Machine Learning", "AI"],
